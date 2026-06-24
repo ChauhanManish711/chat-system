@@ -1,0 +1,22 @@
+const mongoose = require('mongoose');
+const rolePermissionSchema = new mongoose.Schema({
+    roleId : {
+        type : mongoose.Schema.Types.ObjectId,
+        ref : 'roles',
+        required : true
+    },
+    permissionId : {
+        type : mongoose.Schema.Types.ObjectId,
+        ref : 'permissions',
+        required : true
+    }
+});
+rolePermissionSchema.index(
+    {
+        roleId : 1,
+        permissionId : 1
+    },{
+        unique :true
+    }
+)
+module.exports = new mongoose.model('rolePermissions',rolePermissionSchema);
