@@ -1,7 +1,6 @@
 const router = require('express').Router();
+const {getAllUsers} = require('../../controller');
 
-router.get('/getUsers', (req,res)=>{
-    res.json({message : 'Done'});
-})
+router.get('/get-all-users', getAllUsers);
 
 module.exports = router;

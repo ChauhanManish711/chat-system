@@ -36,7 +36,6 @@ module.exports.login = async (req,res)=>{
                 return res.status(400).send({message : 'Missing required data'}); 
 
             const user = await User.findOne({email : email}).populate({path : 'roles', populate : {path : 'roleId'}});
-            console.log(user)
             if(!user) 
                 return res.status(400).send({message : 'Wrong credentials'}); 
 
